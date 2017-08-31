@@ -256,7 +256,7 @@ void com_tx_init_usb(void)   //通讯发送初始化程序，在主循环程序中调用
         guc_com_tx_buffer_usb[0] = 0x68;  //帧头
         guc_com_tx_buffer_usb[1] = 0x96;  
         guc_com_tx_buffer_usb[2] = 0x01;  //帧类型
-        guc_com_tx_buffer_usb[3] = 0x0c;  //负载长度
+        guc_com_tx_buffer_usb[3] = 0x0a;  //负载长度 超低0c 血液0a
         
         guc_com_tx_buffer_usb[4]  = guc_usb_buffer[1]; 
         guc_com_tx_buffer_usb[5]  = guc_usb_buffer[2];
@@ -268,10 +268,10 @@ void com_tx_init_usb(void)   //通讯发送初始化程序，在主循环程序中调用
         guc_com_tx_buffer_usb[11] = guc_usb_buffer[8];
         guc_com_tx_buffer_usb[12] = guc_usb_buffer[9];
         guc_com_tx_buffer_usb[13] = guc_usb_buffer[10];
-        guc_com_tx_buffer_usb[14] = guc_usb_buffer[11];
-        guc_com_tx_buffer_usb[15] = guc_usb_buffer[12];
+        //guc_com_tx_buffer_usb[14] = guc_usb_buffer[11];
+        //guc_com_tx_buffer_usb[15] = guc_usb_buffer[12];
         
-        guc_com_tx_buffer_usb[16] = checksum((guc_com_tx_buffer_usb+2), 14);   //累加和校验
+        guc_com_tx_buffer_usb[14] = checksum((guc_com_tx_buffer_usb+2), 12);   //累加和校验
     }
     else if(bflg_init_time_type == 1)     //回复时间请求帧 11_bytes
     {
@@ -498,7 +498,7 @@ void com_tx_int_usb(void)    //通讯发送中断程序  串口发送中断中调用
     {
         if(bflg_data_type_being_tx == 1)         //发送数据帧
         {
-            if (guc_com_tx_point_usb < 17)
+            if (guc_com_tx_point_usb < 15)
             {
                 TXD0 = guc_com_tx_buffer_usb[guc_com_tx_point_usb++];  
             }

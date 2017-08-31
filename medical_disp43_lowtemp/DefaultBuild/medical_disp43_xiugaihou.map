@@ -1,7 +1,7 @@
 
 
 
-78K0R Linker W1.70                            Date:27 Jul 2017 Page:   1
+78K0R Linker W1.70                            Date:29 Aug 2017 Page:   1
 
 Command:   -yD:\Program Files (x86)\Renesas Electronics\CubeSuite+\Devic
            e\RL78\Devicefile -_msgoff -dpfdl_sample_linker_file.dr -oDef
@@ -119,7 +119,7 @@ Directive:
 *** Link information ***
 
     60 output segment(s)
- 2942H byte(s) real data
+ 2936H byte(s) real data
   3510 symbol(s) defined
 
 
@@ -539,7 +539,7 @@ Directive:
                   @@CNST   m_usb      02020H    00000H
                   @@CNST   m_test_mode
                                       02020H    00002H
-         @@CODEL                      02022H    021C1H  CSEG
+         @@CODEL                      02022H    021B5H  CSEG
                   @@CODEL  r_main     02022H    0001BH
                   @@CODEL  r_systeminit
                                       0203DH    0003AH
@@ -577,10 +577,10 @@ Directive:
                   @@CODEL  m_card     03118H    00652H
                   @@CODEL  r_pfdl     0376AH    001A5H
                   @@CODEL  m_pfdl     0390FH    00123H
-                  @@CODEL  m_usb      03A32H    00688H
+                  @@CODEL  m_usb      03A32H    0067CH
                   @@CODEL  m_test_mode
-                                      040BAH    00129H
-* gap *                               041E3H    07C1DH
+                                      040AEH    00129H
+* gap *                               041D7H    07C29H
          ??OCDROM                     0BE00H    00200H  CSEG
 
   MEMORY=RAM
